@@ -38,8 +38,8 @@ def addition(request):
         b = float(Train_Test_Split)
         
         
-        data=pd.read_csv(r"C:\Users\AyantikaMondal\Desktop\project_API_Django\API_Django\calc\train.csv")
-        test_df=pd.read_csv(r"C:\Users\AyantikaMondal\Desktop\project_API_Django\API_Django\calc\test.csv")
+        data=pd.read_csv(r"calc/train.csv")
+        test_df=pd.read_csv(r"calc/test.csv")
         
         drop_list = ["Cabin","Name","Ticket"]
         data = data.drop(drop_list, axis=1)
