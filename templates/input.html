@@ -1,0 +1,17 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<h1>Addition</h1>
+<form action="add">
+    
+    Enter JobName: <input type="text" name="JobName"><br><br>
+    Enter model name: <input type="text" name="model_name"><br><br>
+    Enter Max_Depth: <input type="text" name="Max_Depth"><br><br>
+    Enter Train_Test_Split: <input type="text" name="Train_Test_Split"><br><br>
+    Enter criterion: <input type="text" name="criterion"><br><br>
+
+    <input type="submit">
+</form>
+
+{% endblock %}
