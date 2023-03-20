@@ -94,16 +94,14 @@ def addition(request):
         predictions=pd.DataFrame(predictions)
         predictions.rename(columns={0:'Values'},inplace=True)
         predictions['PassengerId']=test_df['PassengerId']
+        
+        predictions=pd.merge(predictions,test_df_copy,on='PassengerId',how='left')
         predictions['Parameter']='Predictions'
-        
         predictions=predictions.append(pd.DataFrame({'Values':[Test_accuracy,Test_f1_score,Test_precision_score,Test_recall_score], 'Parameter':['Accuracy', 'f1_score', 'precision_score', 'recall_score']})).reset_index(drop=True)
-        
         predictions['JobID']=JobName
         predictions1=predictions.to_json(orient='records')
-        
-        
         return JsonResponse(json.loads(predictions1), safe = False)
-
+        
         #return render(request, "result.html", {"result": predictions1})
     else:
         res = "Only digits are allowed"
