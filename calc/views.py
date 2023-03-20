@@ -40,6 +40,7 @@ def addition(request):
         
         data=pd.read_csv(r"calc/train.csv")
         test_df=pd.read_csv(r"calc/test.csv")
+        test_df_copy=test_df.copy()
         
         drop_list = ["Cabin","Name","Ticket"]
         data = data.drop(drop_list, axis=1)
